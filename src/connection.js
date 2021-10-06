@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 
-mongoose.connect('mongodb+srv://Seba:taller2@db-dcastro.lcmac.mongodb.net/test');
+mongoose.connect('mongodb+srv://Seba:taller2@db-dcastro.lcmac.mongodb.net/datos');
 
 
 mongoose.connection.once('open',function(){
