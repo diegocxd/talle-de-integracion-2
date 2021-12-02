@@ -1,5 +1,6 @@
 .App {
   border-style: solid;/***/
+  border-color: pink;
 }
 
 .App-header {
@@ -28,14 +29,14 @@
 }
 
 .nav{
-  width: 10%;
+  width: 15%;
   border-style: solid;
   border-color: blue;
   float: left;
 }
 
 .TextEditor{
-  width: 60%;
+  width: 70%;
   border-style: solid;
   border-color: greenyellow;
 }
@@ -45,11 +46,11 @@
   width: 30%;
   border-color: red;
   border-style: solid;
-  float: right;
+  margin-left: 0;
 }
 
 .templates-container{
-  border: 1px dotted pink;
+  border: 1px dotted purple;
   margin: 0;
   list-style: none;
   padding: 5px;
@@ -62,7 +63,7 @@
 
 .template-item {
   color: rgb(250,82,52);
-  box-shadow: 0px 2px 4px #4a4c4e;
+  box-shadow: 0px 3px 6px #4a4c4e;
   border-radius: 5px;
   padding: 0.3em 0.5em;
   background-color: whitesmoke;
@@ -75,3 +76,11 @@
   outline: none;
   border: 2px solid lightskyblue;
 }
+
+.dragndrop{
+  display: flex; 
+  background-color: rgb(190, 31, 177);
+  
+}
+
+

@@ -1,8 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
 import TextEditor from './components/TextEditor';
 import { useState } from 'react';
-
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 const initialTemplates = [
   {
@@ -35,18 +34,40 @@ function App() {
         <div className="nav">
           <nav>Nav</nav>
         </div>
-        <div className="TextEditor">
-          <TextEditor/>
-        </div> 
-        <div className="plantillas">
-          <h1>Plantillas:</h1>
-          <ul className="templates-container">
-            {templates.map((template) => (
-              <li className="template-item" key={template.id}>{template.text}</li>
-              ))}
-          </ul>
-        </div>
-        </div>
+        <DragDropContext onDragEnd={(result)=> console.log(result)}>
+          <div className="TextEditor" >
+            <TextEditor/>
+          </div> 
+          <div className="plantillas">
+            <h1>Plantillas:</h1>
+            <Droppable droppableId="template">
+              {(droppableProvided) => (
+                <ul 
+                  {...droppableProvided.droppableProps}
+                  ref={droppableProvided.innerRef}
+                  className="templates-container"
+                >
+                {templates.map((template, index) => (
+                  <Draggable key={template.id} draggableId={template.id} index={index}>
+                    {(draggableProvided) => (
+                      <li 
+                        {...draggableProvided.draggableProps} 
+                        ref={draggableProvided.innerRef}
+                        {...draggableProvided.dragHandleProps}
+                        className="template-item" 
+                      >
+                        {template.text}
+                      </li>
+                    )}
+                  </Draggable>
+                  ))}
+                  {droppableProvided.placeholder}
+              </ul>
+              )}
+            </Droppable>
+          </div>
+        </DragDropContext>
+      </div>
     </div>
   );
 }
